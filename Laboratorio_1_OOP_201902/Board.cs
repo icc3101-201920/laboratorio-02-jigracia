@@ -106,63 +106,68 @@ namespace Laboratorio_1_OOP_201902
         
 
         //Metodos
-        public void AddMeleeCard(object PlayerId, CombatCard combatCard)
+        public void AddMeleeCard(int PlayerId, CombatCard combatCard)
         {
             throw new NotImplementedException();
         }
-        public void AddRangeCard(object PlayerId, CombatCard combatCard)
+        public void AddRangeCard(int PlayerId, CombatCard combatCard)
         {
             throw new NotImplementedException();
         }
-        public void AddLongRangeCard(object PlayerId, CombatCard combatCard)
+        public void AddLongRangeCard(int PlayerId, CombatCard combatCard)
         {
             throw new NotImplementedException();
         }
-        public void AddCombatCard(object PlayerId, CombatCard combatCard)
+        public void AddCombatCard(int PlayerId, CombatCard combatCard)
+        {
+            /*switch (combatCard.Type)
+            {
+                case "Melee":
+                    AddMeleeCard(PlayerId,)
+            }
+            throw new NotImplementedException();*/
+        }
+        public void AddSpecialCard(int PlayerId, SpecialCard specialCard,string buffType)
         {
             throw new NotImplementedException();
         }
-        public void AddSpecialCard(object PlayerId, SpecialCard specialCard,string buffType)
+        public void AddCaptainCard(int PlayerId, SpecialCard specialCard)
         {
             throw new NotImplementedException();
         }
-        public void AddCaptainCard(object PlayerId, SpecialCard specialCard)
+        public void AddWeatherCard(int PlayerId, SpecialCard specialCard)
         {
             throw new NotImplementedException();
         }
-        public void AddWeatherCard(object PlayerId, SpecialCard specialCard)
+        public void DestroyMeleeCard(int PlayerId)
         {
             throw new NotImplementedException();
         }
-        public void DestroyMeleeCard(object PlayerId)
+        public void DestroyRangeCard(int PlayerId)
         {
             throw new NotImplementedException();
         }
-        public void DestroyRangeCard(object PlayerId)
+        public void DestroyLongRangeCard(int PlayerId)
         {
             throw new NotImplementedException();
         }
-        public void DestroyLongRangeCard(object PlayerId)
+        public void DestroySpecialMeleeCard(int PlayerId)
         {
             throw new NotImplementedException();
         }
-        public void DestroySpecialMeleeCard(object PlayerId)
+        public void DestroySpecialRangeCard(int PlayerId)
         {
             throw new NotImplementedException();
         }
-        public void DestroySpecialRangeCard(object PlayerId)
+        public void DestroySpecialLongRangeCard(int PlayerId)
         {
             throw new NotImplementedException();
         }
-        public void DestroySpecialLongRangeCard(object PlayerId)
+        public void DestroyWeatherCard(int PlayerId)
         {
             throw new NotImplementedException();
         }
-        public void DestroyWeatherCard(object PlayerId)
-        {
-            throw new NotImplementedException();
-        }
-        public void DestroyCombatCard(object PlayerId)
+        public void DestroyCombatCard(int PlayerId)
         {
             throw new NotImplementedException();
         }
