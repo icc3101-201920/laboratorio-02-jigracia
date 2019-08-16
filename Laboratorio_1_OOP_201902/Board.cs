@@ -118,6 +118,14 @@ namespace Laboratorio_1_OOP_201902
         {
             throw new NotImplementedException();
         }
+        public void AddCombatCard(int PlayerId, CombatCard combatCard)
+        {
+            throw new NotImplementedException();
+        }
+        public void AddSpecialCard(int PlayerId, SpecialCard specialCard,string buffType)
+        {
+            throw new NotImplementedException();
+        }
         public void AddCaptainCard(int PlayerId, SpecialCard specialCard)
         {
             throw new NotImplementedException();
@@ -151,6 +159,14 @@ namespace Laboratorio_1_OOP_201902
             throw new NotImplementedException();
         }
         public void DestroyWeatherCard(int PlayerId)
+        {
+            throw new NotImplementedException();
+        }
+        public void DestroyCombatCard(int PlayerId)
+        {
+            throw new NotImplementedException();
+        }
+        public void DestroySpecialCard()
         {
             throw new NotImplementedException();
         }
