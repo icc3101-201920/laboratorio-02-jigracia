@@ -8,7 +8,7 @@ namespace Laboratorio_1_OOP_201902
     public class Hand:Deck
     {
 
-        public Hand()
+        public Hand():base()
         {
 
         }
