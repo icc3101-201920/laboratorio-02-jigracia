@@ -14,6 +14,9 @@ namespace Laboratorio_1_OOP_201902
         private List<CombatCard>[] meleeCards;
         private List<CombatCard>[] rangeCards;
         private List<CombatCard>[] longRangeCards;
+        private List<int>[] totalAttackPointsMelee;
+        private List<int>[] totalAttackPointsRange;
+        private List<int>[] totalAttackPointsLongRange;
 
         private SpecialCard[] specialMeleeCards;
         private SpecialCard[] specialRangeCards;
@@ -21,6 +24,7 @@ namespace Laboratorio_1_OOP_201902
 
         private SpecialCard[] captainCards;
         private List<SpecialCard> weatherCards;
+
 
         //Propiedades
         public List<CombatCard>[] MeleeCards
@@ -91,6 +95,9 @@ namespace Laboratorio_1_OOP_201902
                 return this.weatherCards;
             }
         }
+        public List<int>[] TotalAttackPointsMelee { get => totalAttackPointsMelee; set => totalAttackPointsMelee = value; }
+        public List<int>[] TotalAttackPointsRange { get => totalAttackPointsRange; set => totalAttackPointsRange = value; }
+        public List<int>[] TotalAttackPointsLongRange { get => totalAttackPointsLongRange; set => totalAttackPointsLongRange = value; }
 
 
         //Constructor
@@ -101,6 +108,9 @@ namespace Laboratorio_1_OOP_201902
             this.longRangeCards = new List<CombatCard>[DEFAULT_NUMBER_OF_PLAYERS];
             this.weatherCards = new List<SpecialCard>();
             this.captainCards = new SpecialCard[DEFAULT_NUMBER_OF_PLAYERS];
+            this.totalAttackPointsMelee = new List<int>[DEFAULT_NUMBER_OF_PLAYERS];
+            this.totalAttackPointsRange = new List<int>[DEFAULT_NUMBER_OF_PLAYERS];
+            this.totalAttackPointsLongRange = new List<int>[DEFAULT_NUMBER_OF_PLAYERS];
         }
 
         
@@ -108,24 +118,31 @@ namespace Laboratorio_1_OOP_201902
         //Metodos
         public void AddMeleeCard(int PlayerId, CombatCard combatCard)
         {
-            throw new NotImplementedException();
+            MeleeCards[PlayerId].Add(combatCard);
         }
         public void AddRangeCard(int PlayerId, CombatCard combatCard)
         {
-            throw new NotImplementedException();
+            RangeCards[PlayerId].Add(combatCard);
         }
         public void AddLongRangeCard(int PlayerId, CombatCard combatCard)
         {
-            throw new NotImplementedException();
+            LongRangeCards[PlayerId].Add(combatCard);
         }
         public void AddCombatCard(int PlayerId, CombatCard combatCard)
         {
-            /*switch (combatCard.Type)
+            switch (combatCard.Type)
             {
                 case "Melee":
-                    AddMeleeCard(PlayerId,)
+                    AddMeleeCard(PlayerId,combatCard);
+                    break;
+                case "Range":
+                    AddRangeCard(PlayerId, combatCard);
+                    break;
+                case "LonRange":
+                    AddLongRangeCard(PlayerId, combatCard);
+                    break;
+
             }
-            throw new NotImplementedException();*/
         }
         public void AddSpecialCard(int PlayerId, SpecialCard specialCard,string buffType)
         {
@@ -169,23 +186,52 @@ namespace Laboratorio_1_OOP_201902
         }
         public void DestroyCombatCard(int PlayerId)
         {
-            throw new NotImplementedException();
+            MeleeCards[PlayerId].Clear();
+            RangeCards[PlayerId].Clear();
+            LongRangeCards[PlayerId].Clear();
         }
         public void DestroySpecialCard()
         {
-            throw new NotImplementedException();
+            SpecialMeleeCards = 0;
         }
-        public int[] GetMeleeAttackPoints()
+        public List<int>[] GetMeleeAttackPoints()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < MeleeCards.Length; i++)
+            {
+                int cont = 0;
+                for (int j = 0; j < MeleeCards[i].Count; j++)
+                {
+                    cont+=MeleeCards[i][j].AttackPoints;
+                }
+                TotalAttackPointsMelee[i].Add(cont);
+            }
+            return TotalAttackPointsMelee;
         }
-        public int[] GetRangeAttackPoints()
+        public List<int>[] GetRangeAttackPoints()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < RangeCards.Length; i++)
+            {
+                int cont = 0;
+                for (int j = 0; j < RangeCards[i].Count; j++)
+                {
+                    cont += RangeCards[i][j].AttackPoints;
+                }
+                TotalAttackPointsRange[i].Add(cont);
+            }
+            return TotalAttackPointsRange;
         }
-        public int[] GetLongRangeAttackPoints()
+        public List<int>[] GetLongRangeAttackPoints()
         {
-            throw new NotImplementedException();
+            for (int i = 0; i < LongRangeCards.Length; i++)
+            {
+                int cont = 0;
+                for (int j = 0; j < LongRangeCards[i].Count; j++)
+                {
+                    cont += LongRangeCards[i][j].AttackPoints;
+                }
+                TotalAttackPointsLongRange[i].Add(cont);
+            }
+            return TotalAttackPointsLongRange;
         }
     }
 }

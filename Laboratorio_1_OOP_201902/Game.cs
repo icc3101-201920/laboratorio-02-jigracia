@@ -63,7 +63,16 @@ namespace Laboratorio_1_OOP_201902
         //Metodos
         public bool CheckIfEndGame()
         {
-            if (players[0].LifePoints==0 || players[1].LifePoints==0) {
+            int cont = 0;
+            for (int i = 0; i < players.Length; i++)
+            {
+                if (players[i].LifePoints==0)
+                {
+                    cont++;
+                }
+            }
+            if (cont==(players.Length-1))
+            {
                 return true;
             }
             else
@@ -73,14 +82,15 @@ namespace Laboratorio_1_OOP_201902
         }
         public int GetWinner()
         {
-            if (players[0].LifePoints == 0)
+            int ID=0000000000;
+            for (int i = 0; i < players.Length; i++)
             {
-                return players[1].Id;
+                if (players[i].LifePoints!=0)
+                {
+                    ID= players[i].Id;
+                }
             }
-            else
-            {
-                return players[0].Id;
-            }
+            return ID;
         }
         public void Play()
         {
